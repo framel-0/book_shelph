@@ -16,15 +16,12 @@ import 'infrustruture/book/book_repository.dart';
 import 'application/category/category_bloc.dart';
 import 'infrustruture/category/remote_service/category_remote_service.dart';
 import 'infrustruture/category/categoty_repository.dart';
-import 'application/download/download_actor/download_actor_bloc.dart';
-import 'application/download/dwonload_watcher/download_watcher_bloc.dart';
 import 'application/book/featured/featured_bloc.dart';
 import 'domain/auth/i_auth_facade.dart';
 import 'infrustruture/auth/remote_service/i_auth_remote_service.dart';
 import 'domain/book/i_book_repository.dart';
 import 'infrustruture/category/remote_service/i_category_remote_service.dart';
 import 'domain/category/i_category_repository.dart';
-import 'domain/download/i_download_repository.dart';
 import 'infrustruture/langauge/remote_service/i_language_remote_service.dart';
 import 'domain/language/i_language_reposiroty.dart';
 import 'infrustruture/core/injectable_module.dart';
@@ -50,10 +47,6 @@ GetIt $initGetIt(
   final injectableModule = _$InjectableModule();
   gh.lazySingleton<BookLocalService>(() => BookLocalService());
   gh.lazySingleton<Dio>(() => injectableModule.dio);
-  gh.factory<DownloadActorBloc>(
-      () => DownloadActorBloc(get<IDownloadRepository>()));
-  gh.factory<DownloadWatcherBloc>(
-      () => DownloadWatcherBloc(get<IDownloadRepository>()));
   gh.lazySingleton<IBookRepository>(
       () => BookRepository(get<BookLocalService>()));
   gh.factory<LatestBloc>(() => LatestBloc(get<IBookRepository>()));

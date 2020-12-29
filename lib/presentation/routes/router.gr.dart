@@ -11,7 +11,6 @@ import 'package:flutter/material.dart';
 
 import '../../domain/book/book.dart';
 import '../book/book_detail_page.dart';
-import '../download/download_page.dart';
 import '../home/home_page.dart';
 import '../register/register_page.dart';
 import '../sign_in/sign_in_page.dart';
@@ -22,14 +21,12 @@ class Routes {
   static const String signInPage = '/sign-in-page';
   static const String registerPage = '/register-page';
   static const String homePage = '/home-page';
-  static const String daownloadPage = '/daownload-page';
   static const String bookDetailPage = '/book-detail-page';
   static const all = <String>{
     splashPage,
     signInPage,
     registerPage,
     homePage,
-    daownloadPage,
     bookDetailPage,
   };
 }
@@ -42,7 +39,6 @@ class Router extends RouterBase {
     RouteDef(Routes.signInPage, page: SignInPage),
     RouteDef(Routes.registerPage, page: RegisterPage),
     RouteDef(Routes.homePage, page: HomePage),
-    RouteDef(Routes.daownloadPage, page: DaownloadPage),
     RouteDef(Routes.bookDetailPage, page: BookDetailPage),
   ];
   @override
@@ -72,12 +68,6 @@ class Router extends RouterBase {
         settings: data,
       );
     },
-    DaownloadPage: (data) {
-      return MaterialPageRoute<dynamic>(
-        builder: (context) => DaownloadPage(),
-        settings: data,
-      );
-    },
     BookDetailPage: (data) {
       final args = data.getArgs<BookDetailPageArguments>(nullOk: false);
       return MaterialPageRoute<dynamic>(
@@ -103,8 +93,6 @@ extension RouterExtendedNavigatorStateX on ExtendedNavigatorState {
   Future<dynamic> pushRegisterPage() => push<dynamic>(Routes.registerPage);
 
   Future<dynamic> pushHomePage() => push<dynamic>(Routes.homePage);
-
-  Future<dynamic> pushDaownloadPage() => push<dynamic>(Routes.daownloadPage);
 
   Future<dynamic> pushBookDetailPage({
     Key key,

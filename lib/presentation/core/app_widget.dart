@@ -22,18 +22,18 @@ class AppWidget extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
-        title: 'Afrikan Echoes',
+        title: 'BookShelph',
         builder: ExtendedNavigator(
           router: rt.Router(),
         ),
-        theme: ThemeData.light(),
+        theme: _buildAfricanEchoesTheme(context),
         home: SignInForm(),
       ),
     );
   }
 }
 
-ThemeData _buildAfricanEchoesTheme({@required BuildContext ctx}) {
+ThemeData _buildAfricanEchoesTheme(BuildContext ctx) {
   final ThemeData base = ThemeData.light();
 
   return base.copyWith(

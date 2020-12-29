@@ -59,7 +59,7 @@ class AuthFacade implements IAuthFacade {
         phoneNumber: phoneNumber,
         password: password,
       );
-      final user = await _remoteService.signIn(signInBody);
+      // final user = await _remoteService.signIn(signInBody);
       return right(unit);
     } on PlatformException catch (e) {
       if (true) {
